@@ -34,15 +34,26 @@
 				  
 		$json .= '"activity" : [';
 		$first = true;
-		
+		$array = new SplFixedArray(24);
 		foreach(Catalogs::get_activity_for_arduino($location->get_id(), ($_POST['beginDate']), ($_POST['lastDate'])) as $a)
 		{
-			if($first) $first=false; else $json .= ',';
+			$date = $a->get_time();
+			$date = substr($date, 11, -6);
+			$array[intval($date)] = $array[intval($date)] + 1;	
+		}
+
+		$counter = 0;
+		foreach ($array as $activity) {
+				if($first) $first=false; else $json .= ',';
+				if(is_null($activity)){
+					$activity = 0;
+				}
 				$json .= ' { 
-						"id" : '.$a->get_id().',
-						"time" : "'.$a->get_time().'" }';
-				
-		}		
+						"hour" : '.$counter.',
+						"activity" : '.$activity.'}';
+				$counter = $counter + 1;
+		}
+
 		$json .= '] }';		
 		echo $json;
 	}
