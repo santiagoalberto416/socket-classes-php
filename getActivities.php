@@ -11,15 +11,21 @@
 	$headers = getallheaders();
 	//validate parameter and headers
 	
-	if(isset($_POST['idLocation']) && isset($_POST['beginDate']) && isset($_POST['lastDate']))
+	if(isset($_POST['idLocation']) && isset($_POST['beginDate']))
 	{
 		
 		$beginDate = ($_POST['beginDate']);
-		$lastDate =  ($_POST['lastDate']);
+
+		$date = new DateTime($_POST['beginDate']);
+		$bgstring = $date->format('Y-m-d');
+		
+
+		$date->modify('+1 day');
+		$ldstring = $date->format('Y-m-d');
 
 		$json = '{ "status" : 0,
-					"begin" : "'.$beginDate.'",
-					"end" : "'.$beginDate.'",
+					"begin" : "'.$bgstring.'",
+					"end" : "'.$ldstring.'",
 					';
 
 		$location = new Location($_POST['idLocation']);
@@ -35,7 +41,7 @@
 		$json .= '"activity" : [';
 		$first = true;
 		$array = new SplFixedArray(24);
-		foreach(Catalogs::get_activity_for_arduino($location->get_id(), ($_POST['beginDate']), ($_POST['lastDate'])) as $a)
+		foreach(Catalogs::get_activity_for_arduino($location->get_id(), $bgstring, $ldstring) as $a)
 		{
 			$date = $a->get_time();
 			$date = substr($date, 11, -6);
