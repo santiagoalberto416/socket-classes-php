@@ -1,0 +1,6 @@
+-Onclick y que en el div container aparezca el archivo html citado.
+-Crear un logo - done
+-librerias googlechart, jquery, boostrap. -done
+-font roboto -done
+-icons, descargar -done
+-crear un .ico - done

@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<Title>Smart Place</title>
+		<link rel="shortcut icon" href="images/location.ico">	
+		<link href="css/style.css" rel="stylesheet"></link>		
+		<link href="css/logo.css" rel="stylesheet"></link>		
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet"></link>
+		<link href="css/bootstrap.min.css" rel="stylesheet"></link>
+		<link href="css/bootstrap-theme.css" rel="stylesheet"></link>
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet"></link>
+		<link rel="stylesheet" href="css/jquery-ui.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>	
+		<script type="text/javascript" src="js/charts.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>	
+		<script src="js/jquery-1.12.4.js"></script>
+  		<script src="js/jquery-ui.js"></script>
+	</head>
+	<body class="font" onload="getLocations();">
+
+		<div id="content">
+			<header>
+				<div id="header">
+					<div id="logo">
+						<img src="images/logo.png" ></img>
+					</div>
+				</div>
+			</header>
+			<div id="main">
+				<div id="navbar">
+					<div class="options" onclick=""><i class="fa fa-line-chart" aria-hidden="true"></i> Graphs</div>
+					<div class="options" onclick=""><i class="fa fa-history" aria-hidden="true"></i> History</div>
+					<div class="options" onclick=""><i class="fa fa-location-arrow" aria-hidden="true"></i> Arduino Location</div>					
+				</div>
+				<div id="container">					
+					<div id="option_menu">
+						<div class="selects">
+							<p><i class="fa fa-location-arrow" aria-hidden="true"></i> Location:
+								<select id="select_location" class="form-control">
+								</select>
+							</p>
+						</div>
+						<div class="selects">	
+							<p><i class="fa fa-calendar" aria-hidden="true"></i> Date:
+								<input type="text" id="datepicker">
+								<script>
+									//datepicker function
+									$( function() {
+										$( "#datepicker" ).datepicker();
+									} );
+								</script>
+							</p>
+						</div>
+						<div class="selects">
+							<div id="btnAdd"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</div>
+						</div>
+					</div>
+					<canvas id="myChart" width="1100" height="500"></canvas>					
+					<script type="text/javascript" src="js/graphs.js"></script>
+					<div id="history"></div>
+					<div id="location"></div>
+				</div>
+			</div>
+		</div>		
+	</body>
+	
+</html>
