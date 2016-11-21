@@ -33,7 +33,22 @@ function showSelectLocations(data){
 	var selectLocation = document.getElementById('select_location');
 	var option = document.createElement('option');	
 	option.value = data.id;
-	option.text = data.description;	
+	option.text = data.description + ": " + data.lat + ", " + data.long;	
 	selectLocation.appendChild(option); 	
 }
-
+//contains the select and datepicker values.
+function getGraphs(){
+	
+	var locationId = document.getElementById('select_location').value;
+	var date = document.getElementById('datepicker').value;
+	console.log(locationId);
+	console.log(date);
+	
+	var url = urlServer + 'getactivities.php?idLocation=' + locationId + '&beginDate=' + date;
+	console.log(url);
+	//request
+	x.open('GET', urlServer + url, true);
+	//send request
+	x.send();
+	
+}

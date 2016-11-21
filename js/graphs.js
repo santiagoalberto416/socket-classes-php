@@ -1,5 +1,5 @@
 
-
+//show graphs
 var ctx = document.getElementById("myChart");
 
 	var data = {

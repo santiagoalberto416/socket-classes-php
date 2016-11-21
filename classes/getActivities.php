@@ -11,12 +11,12 @@
 	$headers = getallheaders();
 	//validate parameter and headers
 	
-	if(isset($_POST['idLocation']) && isset($_POST['beginDate']))
+	if(isset($_GET['idLocation']) && isset($_GET['beginDate']))
 	{
 		
-		$beginDate = ($_POST['beginDate']);
+		$beginDate = ($_GET['beginDate']);
 
-		$date = new DateTime($_POST['beginDate']);
+		$date = new DateTime($_GET['beginDate']);
 		$bgstring = $date->format('Y-m-d');
 		
 
@@ -28,7 +28,7 @@
 					"end" : "'.$ldstring.'",
 					';
 
-		$location = new Location($_POST['idLocation']);
+		$location = new Location($_GET['idLocation']);
 
 		$json .='"location": {
 						"id" : '.$location->get_id().',

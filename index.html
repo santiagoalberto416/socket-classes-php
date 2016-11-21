@@ -31,7 +31,7 @@
 				<div id="navbar">
 					<div class="options" onclick=""><i class="fa fa-line-chart" aria-hidden="true"></i> Graphs</div>
 					<div class="options" onclick=""><i class="fa fa-history" aria-hidden="true"></i> History</div>
-					<div class="options" onclick=""><i class="fa fa-location-arrow" aria-hidden="true"></i> Arduino Location</div>					
+					<div class="options" onclick=""><i class="fa fa-location-arrow" aria-hidden="true"></i> Arduino Location</div>			
 				</div>
 				<div id="container">					
 					<div id="option_menu">
@@ -47,13 +47,13 @@
 								<script>
 									//datepicker function
 									$( function() {
-										$( "#datepicker" ).datepicker();
+										$( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
 									} );
 								</script>
 							</p>
 						</div>
 						<div class="selects">
-							<div id="btnAdd"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</div>
+							<div id="btnAdd" onclick="getGraphs();"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</div>
 						</div>
 					</div>
 					<canvas id="myChart" width="1100" height="500"></canvas>					
