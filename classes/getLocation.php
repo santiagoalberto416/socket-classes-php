@@ -5,9 +5,9 @@ header('Access-Control-Allow-Headers: *');
 require_once('classes/location.php');
 $headers = getallheaders();
 
-if(isset($_POST['idLocation']))
+if(isset($_GET['idLocation']))
 {
-		$m = new Location($_POST['idLocation']);
+		$m = new Location($_GET['idLocation']);
 		if(is_null($m->get_id()))
 			echo '{ "status" : 1, "errorMessage" : "Location not found" }';
 		else if($m->get_id()==0){
@@ -16,7 +16,8 @@ if(isset($_POST['idLocation']))
 			echo '{ "status" : 0, "message" : "Location found",
 				"id": '.$m->get_id().',
 				"latitude":"'.$m->get_lat().'",
-				"longitude":"'.$m->get_long().'"
+				"longitude":"'.$m->get_long().'",
+				"description":"'.$m->get_description().'"
 				}';
 		}
 		
