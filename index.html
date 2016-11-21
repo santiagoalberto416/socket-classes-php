@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="css/jquery-ui.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>	
 		<script type="text/javascript" src="js/charts.js"></script>
+		<script type="text/javascript" src="js/graphs.js"></script>
 		<script type="text/javascript" src="js/functions.js"></script>	
 		<script src="js/jquery-1.12.4.js"></script>
   		<script src="js/jquery-ui.js"></script>
@@ -47,7 +48,7 @@
 								<script>
 									//datepicker function
 									$( function() {
-										$( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+										$( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' })
 									} );
 								</script>
 							</p>
@@ -56,8 +57,7 @@
 							<div id="btnAdd" onclick="getGraphs();"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</div>
 						</div>
 					</div>
-					<canvas id="myChart" width="1100" height="500"></canvas>					
-					<script type="text/javascript" src="js/graphs.js"></script>
+					<canvas id="myChart" width="1100" height="500"></canvas>
 					<div id="history"></div>
 					<div id="location"></div>
 				</div>

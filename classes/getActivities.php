@@ -38,7 +38,7 @@
 						},';
 
 				  
-		$json .= '"activity" : [';
+		$json .= '"activities" : [';
 		$first = true;
 		$array = new SplFixedArray(24);
 		foreach(Catalogs::get_activity_for_arduino($location->get_id(), $bgstring, $ldstring) as $a)
