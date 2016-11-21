@@ -38,5 +38,31 @@
 			return $list;
 		}
 		
+		public static function get_locations()
+		{
+			//open connection to MySql
+			parent::open_connection();
+			//initialize arrays
+			$ids = array(); //array for ids
+			$list = array(); //array for objects
+			//query
+			$query = "SELECT `id` FROM `locations`";
+			//prepare command
+			$command = parent::$connection->prepare($query);
+			//execute command
+			$command->execute();
+			//link results
+			$command->bind_result($id);
+			//fill ids array
+			while ($command->fetch()) array_push($ids, $id);
+			//close command
+			mysqli_stmt_close($command);
+			//close connection
+			parent::close_connection();
+			//fill object array
+			for ($i=0; $i < count($ids); $i++) array_push($list, new Location($ids[$i]));
+			//return array
+			return $list;
+		}
 	}	
 ?>
