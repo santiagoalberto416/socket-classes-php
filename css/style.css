@@ -41,10 +41,14 @@ body{
 	font-weight: bold;
 }
 #btnAdd{
-	width:80%; height:26px; position:relative; float:left; margin:10px 10% 2px 10%;
-	background:#FF4081; color:#FFFFFF; text-align:center; padding-top:5px; border-radius:20px;
-	border:solid 1px #FF4081;
+	width:80%; height:30px; position:relative; float:left; margin:12px 10% 2px 10%;
+	background:#FF4081; color:#FFFFFF; text-align:center; border-radius:20px;
+	border:solid 2px #FF4081; font-weight: bold;
 }
 #btnAdd:hover{	
-	background:transparent; border:solid 1px #FF4081; color:#FF4081; cursor:pointer;
+	background:transparent; border:solid 2px #FF4081; color:#FF4081; cursor:pointer;
+}
+#btnAdd:disabled{
+	background: transparent; color: #212121; border:solid 2px #212121; font-weight: bold;
+	cursor: auto;
 }
