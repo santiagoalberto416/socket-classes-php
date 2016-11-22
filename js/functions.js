@@ -183,3 +183,4 @@ function showDataChart(dataChart){
 	myBarChart.data.datasets[0].data[3]= 10; // Would update the first dataset's value of 'March' to be 50
 	myBarChart.update();
 }
+

@@ -17,6 +17,9 @@
 		<script type="text/javascript" src="js/functions.js"></script>	
 		<script src="js/jquery-1.12.4.js"></script>
   		<script src="js/jquery-ui.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/npm.js"></script>
 	</head>
 	<body class="font" onload="getLocations();">
 
@@ -38,23 +41,33 @@
 					<div id="option_menu">
 						<div class="selects">
 							<p><i class="fa fa-location-arrow" aria-hidden="true"></i> Location:
-								<select id="select_location" class="form-control">
-								</select>
+								<select id="select_location" class="form-control"></select>
 							</p>
 						</div>
 						<div class="selects">	
 							<p><i class="fa fa-calendar" aria-hidden="true"></i> Date:
-								<input type="text" id="datepicker">
+								<input type="text" class="form-control" id="datepicker" placeholder="Select a date">
 								<script>
-									//datepicker function
-									$( function() {
-										$( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' })
-									} );
+									$(function(){
+
+									   var enableDisableSubmitBtn = function(){
+										 var startVal = $('#datepicker').val().trim();
+										 var disableBtn =  startVal.length == 0;
+										 $('#btnAdd').attr('disabled', disableBtn);
+									   }
+
+									   $('#datepicker').datepicker({
+											 dateFormat: 'yy-mm-dd' ,
+											 onSelect: function(selected) {
+												  enableDisableSubmitBtn();
+												}
+										});
+									});
 								</script>
 							</p>
 						</div>
 						<div class="selects">
-							<div id="btnAdd" onclick="getGraphs();"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</div>
+							<button id="btnAdd" onclick="getGraphs();" disabled="disabled"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</button>
 						</div>
 					</div>
 					<canvas id="myChart" width="1100" height="500"></canvas>
