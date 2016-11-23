@@ -41,12 +41,12 @@
 					<div id="option_menu">
 						<div class="selects">
 							<p><i class="fa fa-location-arrow" aria-hidden="true"></i> Location:
-								<select id="select_location" class="form-control"></select>
+								<select id="select_location" class="input-format font"></select>
 							</p>
 						</div>
 						<div class="selects">	
 							<p><i class="fa fa-calendar" aria-hidden="true"></i> Date:
-								<input type="text" class="form-control" id="datepicker" placeholder="Select a date">
+								<input type="text" class="input-format font" id="datepicker" placeholder="Select a date">
 								<script>
 									$(function(){
 
@@ -67,10 +67,10 @@
 							</p>
 						</div>
 						<div class="selects">
-							<button id="btnAdd" onclick="getGraphs();" disabled="disabled"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</button>
+							<button id="btnAdd" onclick="getGraphs();" disabled="disabled" class="font"><i class="fa fa-bar-chart" aria-hidden="true"></i> Show Graph</button>
 						</div>
 					</div>
-					<canvas id="myChart" width="1100" height="500"></canvas>
+					<canvas id="myChart" width="1100" height="480" class="canvas-graphs"></canvas>
 					<div id="history"></div>
 					<div id="location"></div>
 				</div>
